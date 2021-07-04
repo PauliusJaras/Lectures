@@ -1,4 +1,4 @@
-class Lectures {
+class Lecture {
 
     constructor(id,title,course, studentLimit, startTime, endTime, students){
         this.id = id,

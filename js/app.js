@@ -25,3 +25,7 @@ function addLecture(lecture){
 function removeStudent(){
     
 }
+
+function removeLecture(){
+    
+}
