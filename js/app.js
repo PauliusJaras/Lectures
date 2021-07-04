@@ -2,9 +2,11 @@ const studentList = localStorageService.students;
 const lectureList = localStorageService.lectures;
 const studentForm = new Form('#studentForm');
 const lectureForm = new Form('#lectureForm');
+const studentTable = new StudentTable(studentList);
+const lectureTable = new LectureTable(lectureList);
 
-console.log(lectureForm);
-
+lectureTable.onload();
+studentTable.onload();
 studentForm.onSubmit(addStudent);
 lectureForm.onSubmit(addLecture);
 
@@ -13,6 +15,8 @@ function addStudent(student){
     const student1 = new Student(1,student.name, student.course, []);
     studentList.push(student1);
     localStorageService.students = studentList;
+
+    
 }
 
 function addLecture(lecture){
