@@ -13,3 +13,9 @@ body{
 label{
     display: block;
 }
+
+input{
+    display: block;
+    margin:5px 0px;
+}
+
