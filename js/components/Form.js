@@ -9,6 +9,7 @@ class Form {
         this.form.addEventListener('submit', e => {
             e.preventDefault();
             callback(this.fieldValues);
+            this.form.reset();
         });
     }
 
