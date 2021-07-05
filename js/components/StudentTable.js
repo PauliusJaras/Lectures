@@ -7,7 +7,7 @@ class StudentTable {
      onload = callback =>{
         const studentTable = document.querySelector('#studentTable').childNodes[3];
         this.selector.forEach(e => {
-        const div = document.createElement('div');
+        const tr = document.createElement('tr');
         const td1 = document.createElement('td');
         const td2 = document.createElement('td');
         const button = document.createElement('button');
@@ -15,10 +15,10 @@ class StudentTable {
         td2.appendChild(document.createTextNode(`${e.course}`));
         button.setAttribute('id','remove');
         button.appendChild(document.createTextNode("X"));
-        div.appendChild(td1);
-        div.appendChild(td2);
-        div.appendChild(button);
-        studentTable.appendChild(div);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(button);
+        studentTable.appendChild(tr);
 
         });
     }

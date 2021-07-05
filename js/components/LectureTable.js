@@ -7,7 +7,7 @@ class LectureTable{
      onload = callback =>{
         const studentTable = document.querySelector('#lectureTable').childNodes[3];
         this.selector.forEach(e => {
-        const div = document.createElement('div');
+        const tr = document.createElement('tr');
         const td1 = document.createElement('td');
         const td2 = document.createElement('td');
         const td3 = document.createElement('td');
@@ -21,13 +21,13 @@ class LectureTable{
         td5.appendChild(document.createTextNode(`${e.endTime}`));
         button.setAttribute('id','remove');
         button.appendChild(document.createTextNode("X"));
-        div.appendChild(td1);
-        div.appendChild(td2);
-        div.appendChild(td3);
-        div.appendChild(td4);
-        div.appendChild(td5);
-        div.appendChild(button);
-        studentTable.appendChild(div);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+        tr.appendChild(button);
+        studentTable.appendChild(tr);
 
         });
     }
