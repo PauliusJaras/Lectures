@@ -13,6 +13,7 @@ class LectureTable{
         const td3 = document.createElement('td');
         const td4 = document.createElement('td');
         const td5 = document.createElement('td');
+        const td6 = document.createElement('td');
         const button = document.createElement('button');
         td1.appendChild(document.createTextNode(`${e.title}`));
         td2.appendChild(document.createTextNode(`${e.course}`));
@@ -26,6 +27,7 @@ class LectureTable{
         tr.appendChild(td3);
         tr.appendChild(td4);
         tr.appendChild(td5);
+        tr.appendChild(td6);
         tr.appendChild(button);
         studentTable.appendChild(tr);
 
