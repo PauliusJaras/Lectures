@@ -15,13 +15,14 @@ class LectureTable{
         const td5 = document.createElement('td');
         const td6 = document.createElement('td');
         const button = document.createElement('button');
+        button.addEventListener('click', removeLecture);
+        button.setAttribute('id','remove');
+        button.appendChild(document.createTextNode("X"));
         td1.appendChild(document.createTextNode(`${e.title}`));
         td2.appendChild(document.createTextNode(`${e.course}`));
         td3.appendChild(document.createTextNode(`${e.studentLimit}`));
         td4.appendChild(document.createTextNode(`${e.startTime}`));
         td5.appendChild(document.createTextNode(`${e.endTime}`));
-        button.setAttribute('id','remove');
-        button.appendChild(document.createTextNode("X"));
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
