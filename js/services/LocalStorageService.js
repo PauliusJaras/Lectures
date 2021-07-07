@@ -1,13 +1,7 @@
 const localStorageService = new class{
     get students()
     {
-        try {
-            return JSON.parse(localStorage.getItem('students')) ?? [];
-        } 
-        catch(e){
-            console.log(e);
-            return [];
-        }
+        return JSON.parse(localStorage.getItem('students')) ?? [];
     }
 
     get lectures(){

@@ -19,19 +19,32 @@ lectureForm.onSubmit(addLecture);
 
 //Adds a student to the localStorage
 function addStudent(e){
-    const student = new Student(1,e.name, e.course, []);
-    studentList.push(student);
-    localStorageService.students = studentList;
+    const student = new Student(e.name, e.course, []);
 
-    
+    if(student.fullName === '' || student.course === ''){
+        console.log('Field can`t be blank');
+    } else if(studentList.every(x=> x.fullName !== student.fullName)){
+        studentList.push(student);
+        localStorageService.students = studentList;
+    } else {
+        console.log('Entry already exists! Use another name');
+    }
 }
 
 //Adds a lecture to the localStorage
 function addLecture(e){
-    const lecture = new Lecture(1,e.title, e.course, 
+    const lecture = new Lecture(e.title, e.course, 
         e.studentLimit, e.startTime, e.endTime, []);
-    lectureList.push(lecture);
-    localStorageService.lectures = lectureList;
+
+        if(lecture.title === '' || lecture.course === '' || lecture.studentLimit === ''
+        || lecture.startTime === '' || lecture.endTime === ''){
+            console.log('Field can`t be blank');
+        } else if(lectureList.every(x=> x.title !== lecture.title)){
+            lectureList.push(lecture);
+            localStorageService.lectures = lectureList;
+        } else {
+            console.log('Entry already exists! Use another title');
+        }
 }
 
 //Removes a student from the localStorage and DOM
@@ -52,6 +65,7 @@ function removeLecture(e){
     e.target.parentNode.remove();
 }
 
+//Fill student form with selected data
 function updateStudent(e){
 
     const studentName = e.target.parentNode.firstChild.textContent;
@@ -63,6 +77,7 @@ function updateStudent(e){
 
 }
 
+//Fill lecture form with selected data
 function updateLecture(e){
 
     const lectureTitle = e.target.parentNode.firstChild.textContent;

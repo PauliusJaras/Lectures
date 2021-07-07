@@ -4,7 +4,7 @@ class StudentTable {
         this.selector = selector;
     }
 
-     onload = callback =>{
+     onload = () =>{
         const studentTable = document.querySelector('#studentTable').childNodes[3];
         this.selector.forEach(e => {
         const tr = document.createElement('tr');
@@ -30,13 +30,4 @@ class StudentTable {
 
         });
     }
-
-    onclick = callback => {
-        document.querySelector('#studentTable').addEventListener('submit', e =>{
-            e.preventDefault();
-            callback()
-        })
-
-    }
-
 }

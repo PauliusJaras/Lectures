@@ -4,7 +4,7 @@ class LectureTable{
         this.selector = selector;
     }
 
-     onload = callback =>{
+     onload = () =>{
         const studentTable = document.querySelector('#lectureTable').childNodes[3];
         this.selector.forEach(e => {
         const tr = document.createElement('tr');

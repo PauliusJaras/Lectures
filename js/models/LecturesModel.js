@@ -1,7 +1,6 @@
 class Lecture {
 
-    constructor(id,title,course, studentLimit, startTime, endTime, students){
-        this.id = id,
+    constructor(title, course, studentLimit, startTime, endTime, students){
         this.title = title,
         this.course = course,
         this.studentLimit = studentLimit,
