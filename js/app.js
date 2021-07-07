@@ -51,3 +51,31 @@ function removeLecture(e){
     localStorageService.lectures = result;
     e.target.parentNode.remove();
 }
+
+function updateStudent(e){
+
+    const studentName = e.target.parentNode.firstChild.textContent;
+    const student = studentList.filter(x=> x.fullName === studentName);
+    const name = document.querySelector('#name');
+    const course = document.querySelector('#course');
+    name.value = student[0].fullName;
+    course.value = student[0].course;
+
+}
+
+function updateLecture(e){
+
+    const lectureTitle = e.target.parentNode.firstChild.textContent;
+    const lecture = lectureList.filter(x=> x.title === lectureTitle);
+    const title = document.querySelector('#title');
+    const course = document.querySelector('#lectureForm > #course');
+    const studentLimit = document.querySelector('#studentLimit');
+    const startTime = document.querySelector('#startTime');
+    const endTime = document.querySelector('#endTime');
+    title.value = lecture[0].title;
+    course.value = lecture[0].course;
+    studentLimit.value = lecture[0].studentLimit;
+    startTime.value = lecture[0].startTime;
+    endTime.value = lecture[0].endTime; 
+
+}
