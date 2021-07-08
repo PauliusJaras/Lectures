@@ -13,6 +13,10 @@ class Form {
         });
     }
 
+    scrollToForm = () => {
+        this.form.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+    }
+
     onSuccess = () => {
         const div = document.createElement('div');
         div.className= 'bar success';
