@@ -4,7 +4,7 @@ class LectureTable{
         this.selector = selector;
     }
 
-     onload = () =>{
+     onLoad = () =>{
         const studentTable = document.querySelector('#lectureTable').childNodes[3];
         this.selector.forEach(e => {
         const tr = document.createElement('tr');
@@ -27,6 +27,7 @@ class LectureTable{
         td3.appendChild(document.createTextNode(`${e.studentLimit}`));
         td4.appendChild(document.createTextNode(`${e.startTime}`));
         td5.appendChild(document.createTextNode(`${e.endTime}`));
+        td6.appendChild(document.createTextNode(`${e.students}`));
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);

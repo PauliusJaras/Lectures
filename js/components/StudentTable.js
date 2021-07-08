@@ -4,7 +4,7 @@ class StudentTable {
         this.selector = selector;
     }
 
-     onload = () =>{
+     onLoad = () =>{
         const studentTable = document.querySelector('#studentTable').childNodes[3];
         this.selector.forEach(e => {
         const tr = document.createElement('tr');

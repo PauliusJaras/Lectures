@@ -2,7 +2,7 @@ class Form {
 
     constructor(selector){
         this.form = document.querySelector(selector);
-        this.fields = Array.from(this.form).filter(x => ['input', 'select', 'textarea'].includes(x.localName))
+        this.fields = Array.from(this.form).filter(x => ['input', 'select', 'textarea'].includes(x.localName));
     }
 
     onSubmit = callback => {
@@ -33,10 +33,29 @@ class Form {
         },3000)
     }
 
+    onLoad = (e) => {
+        const select = document.querySelector('#students');
+        const uniqueCourses = [...new Set(e.map(x => x.course))].sort();
+        uniqueCourses.forEach(c=> {
+            const  optGroup = document.createElement('optgroup');
+            optGroup.label = "Course " + c + " Students:";   
+        e.forEach(x=> {
+            if(x.course === c){
+            const option = document.createElement('option');
+            option.setAttribute('name', 'students');
+            option.value = x.fullName;
+            option.appendChild(document.createTextNode(`${x.fullName}`));
+            optGroup.appendChild(option);
+            select.appendChild(optGroup);
+        }
+        });
+    });
+    }
+
     get fieldValues(){
         return this.fields.reduce((values, field)=> ({
             ...values,
-            [field.name]: field.value,
+            [field.name]: field.value
         }), {});
     } 
 }

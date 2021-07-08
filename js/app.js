@@ -9,8 +9,10 @@ const lectureTable = new LectureTable(lectureList);
 
 
 //Fills table list with data from localStorage
-lectureTable.onload();
-studentTable.onload();
+lectureTable.onLoad();
+studentTable.onLoad();
+
+lectureForm.onLoad(studentList);
 
 //On submit adds data to the localStorage
 studentForm.onSubmit(addStudent);
@@ -35,15 +37,18 @@ function addStudent(e){
 //Adds a lecture to the localStorage
 function addLecture(e){
     const lecture = new Lecture(e.title, e.course, 
-        e.studentLimit, e.startTime, e.endTime, []);
+        e.studentLimit, e.startTime, e.endTime, e.students);
+
+        console.log(e);
+
 
         if(lecture.title === '' || lecture.course === '' || lecture.studentLimit === ''
         || lecture.startTime === '' || lecture.endTime === ''){
             lectureForm.onError('Fields can`t be blank');
         } else if(lectureList.every(x=> x.title !== lecture.title)){
-            lectureForm.onSuccess();
-            lectureList.push(lecture);
-            localStorageService.lectures = lectureList;
+                lectureForm.onSuccess();
+                lectureList.push(lecture);
+                localStorageService.lectures = lectureList;
         } else {
             lectureForm.onError('Lecture already exists!');
         }
@@ -96,3 +101,5 @@ function updateLecture(e){
     endTime.value = lecture[0].endTime; 
 
 }
+
+//OnSelect click 
