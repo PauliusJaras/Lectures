@@ -15,10 +15,10 @@ class StudentTable {
         const button2 = document.createElement('button');
         button.addEventListener('click', removeStudent);
         button.setAttribute('id','remove');
-        button.appendChild(document.createTextNode("X"));
+        button.appendChild(document.createTextNode("Delete"));
         button2.addEventListener('click', updateStudent);
         button2.setAttribute('id','update');
-        button2.appendChild(document.createTextNode("U"));
+        button2.appendChild(document.createTextNode("Edit"));
         td1.appendChild(document.createTextNode(`${e.fullName}`));
         td2.appendChild(document.createTextNode(`${e.course}`));
         tr.appendChild(td1);

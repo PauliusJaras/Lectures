@@ -18,10 +18,10 @@ class LectureTable{
         const button2 = document.createElement('button');
         button.addEventListener('click', removeLecture);
         button.setAttribute('id','remove');
-        button.appendChild(document.createTextNode("X"));
+        button.appendChild(document.createTextNode("Delete"));
         button2.addEventListener('click', updateLecture);
         button2.setAttribute('id','update');
-        button2.appendChild(document.createTextNode("U"));
+        button2.appendChild(document.createTextNode("Edit"));
         td1.appendChild(document.createTextNode(`${e.title}`));
         td2.appendChild(document.createTextNode(`${e.course}`));
         td3.appendChild(document.createTextNode(`${e.studentLimit}`));
