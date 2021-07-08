@@ -81,6 +81,7 @@ function updateStudent(e){
     const course = document.querySelector('#course');
     name.value = student[0].fullName;
     course.value = student[0].course;
+    document.getElementById("studentForm").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
 }
 
@@ -99,6 +100,7 @@ function updateLecture(e){
     studentLimit.value = lecture[0].studentLimit;
     startTime.value = lecture[0].startTime;
     endTime.value = lecture[0].endTime; 
+    document.getElementById("lectureForm").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
 }
 
