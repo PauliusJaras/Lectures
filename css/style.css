@@ -94,7 +94,6 @@ form{
     justify-content: center;
     width: 400px;
     padding: 30px 0;
-    margin:auto;
 }
 h3{
     font-weight: 400;
@@ -130,4 +129,8 @@ caption{
     font-size: 16pt;
     text-align: center;
     margin-bottom: 10px;
+}
+
+div{
+    margin:auto;
 }

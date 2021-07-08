@@ -24,6 +24,7 @@
 
     <main>
 
+    <div>
         <form id="studentForm">
             <h3>Student Form</h3>
             <label for="name">Name</label>
@@ -32,7 +33,9 @@
             <input type="number" name="course" id="course">
             <input type="submit">
         </form>
+    </div>
 
+       <div>
         <table id="studentTable">
             <caption>Student List</caption>
             <thead>
@@ -45,39 +48,44 @@
 
             </tbody>
         </table>
+       </div>
 
-        <form id="lectureForm">
-            <h3>Lecture Form</h3>
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
-            <label for="course">Course</label>
-            <input type="number" name="course" id="course">
-            <label for="studentLimit">Student Limit</label>
-            <input type="number" name="studentLimit" id="studentLimit">
-            <label for="startTime">Start Time</label>
-            <input type="datetime-local" name="startTime" id="startTime">
-            <label for="endTime">End Time</label>
-            <input type="datetime-local" name="endTime" id="endTime">
-            <input type="submit">
-        </form>
+        <div>
+            <form id="lectureForm">
+                <h3>Lecture Form</h3>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+                <label for="course">Course</label>
+                <input type="number" name="course" id="course">
+                <label for="studentLimit">Student Limit</label>
+                <input type="number" name="studentLimit" id="studentLimit">
+                <label for="startTime">Start Time</label>
+                <input type="datetime-local" name="startTime" id="startTime">
+                <label for="endTime">End Time</label>
+                <input type="datetime-local" name="endTime" id="endTime">
+                <input type="submit">
+            </form>
+        </div>
 
-        <table id="lectureTable">
-            <caption>Lecture List</caption>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Course</th>
-                    <th>Student Limit</th>
-                    <th>Start Time</th>
-                    <th>End Time</th>
-                    <th>Students</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
+        <div>
+            <table id="lectureTable">
+                <caption>Lecture List</caption>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Course</th>
+                        <th>Student Limit</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Students</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+        </div>
 
 
     </main>
