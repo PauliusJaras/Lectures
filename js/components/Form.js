@@ -13,6 +13,26 @@ class Form {
         });
     }
 
+    onSuccess = () => {
+        const div = document.createElement('div');
+        div.className= 'bar success';
+        div.appendChild(document.createTextNode('Entry Added To The List!'));
+        this.form.appendChild(div);
+        setTimeout(()=>{
+                div.remove()
+        },3000)
+    }
+    
+    onError = (e) => {
+        const div = document.createElement('div');
+        div.className= 'bar error';
+        div.appendChild(document.createTextNode(e));
+        this.form.appendChild(div);
+        setTimeout(()=>{
+                div.remove()
+        },3000)
+    }
+
     get fieldValues(){
         return this.fields.reduce((values, field)=> ({
             ...values,

@@ -22,12 +22,13 @@ function addStudent(e){
     const student = new Student(e.name, e.course, []);
 
     if(student.fullName === '' || student.course === ''){
-        console.log('Field can`t be blank');
+        studentForm.onError('Fields can`t be blank');
     } else if(studentList.every(x=> x.fullName !== student.fullName)){
+        studentForm.onSuccess();
         studentList.push(student);
         localStorageService.students = studentList;
     } else {
-        console.log('Entry already exists! Use another name');
+        studentForm.onError('Student already exists!');
     }
 }
 
@@ -38,12 +39,13 @@ function addLecture(e){
 
         if(lecture.title === '' || lecture.course === '' || lecture.studentLimit === ''
         || lecture.startTime === '' || lecture.endTime === ''){
-            console.log('Field can`t be blank');
+            lectureForm.onError('Fields can`t be blank');
         } else if(lectureList.every(x=> x.title !== lecture.title)){
+            lectureForm.onSuccess();
             lectureList.push(lecture);
             localStorageService.lectures = lectureList;
         } else {
-            console.log('Entry already exists! Use another title');
+            lectureForm.onError('Lecture already exists!');
         }
 }
 
