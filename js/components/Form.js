@@ -37,7 +37,7 @@ class Form {
         },3000)
     }
 
-    onLoad = (e) => {
+    LoadStudentList = (e) => {
         const select = document.querySelector('#students');
         const uniqueCourses = [...new Set(e.map(x => x.course))].sort();
         uniqueCourses.forEach(c=> {
@@ -54,6 +54,9 @@ class Form {
         }
         });
     });
+    }
+    addStudent = (e) => {
+
     }
 
     get fieldValues(){

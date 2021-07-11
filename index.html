@@ -64,7 +64,13 @@
                 <label for="endTime">End Time</label>
                 <input type="datetime-local" name="endTime" id="endTime">
                 <label for="students">Students</label>
-                <select id="students" name="students" multiple></select>
+                <select id="students" name="students" >
+                    <option  label="Select a student" hidden></option>
+                </select>
+                <button type="button" class="studentAdd btn">Add Student</button>
+                <label for="studentList">Students Assigned To The Lecture</label>
+                <select id="studentList" name="studentList" multiple></select>
+                <button type="button" class="studentRemove btn">Remove Student</button>
                 <input type="submit">
             </form>
         </div>

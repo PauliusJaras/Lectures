@@ -12,7 +12,7 @@ const lectureTable = new LectureTable(lectureList);
 lectureTable.onLoad();
 studentTable.onLoad();
 
-lectureForm.onLoad(studentList);
+lectureForm.LoadStudentList(studentList);
 
 //On submit adds data to the localStorage
 studentForm.onSubmit(addStudent);
@@ -104,4 +104,29 @@ function updateLecture(e){
 
 }
 
-//OnSelect click 
+//OnSelect click
+
+const button = document.querySelector('.studentAdd');
+const button2 = document.querySelector('.studentRemove');
+button.addEventListener('click', onClickAdd);
+button2.addEventListener('click', OnClickRemove);
+
+function onClickAdd(){
+    const select = document.querySelector('#students');
+    if(select.value != ''){
+    const list = document.querySelector('#studentList');
+    const option = document.createElement('option');
+    option.appendChild(document.createTextNode(select.value));
+    list.appendChild(option);
+    const index = select.options[select.selectedIndex]
+    index.setAttribute('disabled', 'disabled');
+    select.selectedIndex = 0;
+    } else{
+        return null;
+    }     
+}
+
+function OnClickRemove(){
+    const list = document.querySelector('#studentList');
+    list.remove(list.selectedIndex);
+}
