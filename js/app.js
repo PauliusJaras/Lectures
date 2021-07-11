@@ -117,6 +117,8 @@ function onClickAdd(){
     const list = document.querySelector('#studentList');
     const option = document.createElement('option');
     option.appendChild(document.createTextNode(select.value));
+    option.value = select.value;
+    option.id = select.selectedIndex;
     list.appendChild(option);
     const index = select.options[select.selectedIndex]
     index.setAttribute('disabled', 'disabled');
@@ -128,5 +130,8 @@ function onClickAdd(){
 
 function OnClickRemove(){
     const list = document.querySelector('#studentList');
+    const select = document.querySelector('#students');
+    const index = select.options[list.options[list.selectedIndex].id];
+    index.removeAttribute('disabled');
     list.remove(list.selectedIndex);
 }
