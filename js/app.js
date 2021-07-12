@@ -104,7 +104,7 @@ function updateLecture(e){
 
 }
 
-//OnSelect click
+//Add selected student to the lecture
 
 const button = document.querySelector('.studentAdd');
 const button2 = document.querySelector('.studentRemove');
@@ -128,6 +128,7 @@ function onClickAdd(){
     }     
 }
 
+//Remove selected student from the lecture
 function OnClickRemove(){
     const list = document.querySelector('#studentList');
     const select = document.querySelector('#students');

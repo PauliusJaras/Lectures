@@ -204,9 +204,17 @@ div{
     color: white;
   }
 
-  .studentRemove{
+  .studentRemove, .lectureRemove{
       background-color: rgb(237,87,76);
       color: white;
+  }
+
+  .lectureRemove{
+      display:none;
+  }
+
+  #lectures{
+      display:none;
   }
 
   option:disabled{
