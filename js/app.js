@@ -1,3 +1,5 @@
+'use strict'
+
 //Gets localStorage data
 let studentList = localStorageService.students;
 let lectureList = localStorageService.lectures;
