@@ -50,6 +50,17 @@ input{
     padding-left: 10px;
 }
 
+.inputError {
+    border:solid 1px rgb(237,87,76);
+}
+
+.errorMessage {
+    color: rgb(237,87,76);
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0px 0px 8px 0px;
+}
+
 table, th, td {
     border-collapse: collapse;
   }

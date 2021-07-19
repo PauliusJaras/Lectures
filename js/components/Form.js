@@ -9,7 +9,6 @@ class Form {
         this.form.addEventListener('submit', e => {
             e.preventDefault();
             callback(this.fieldValues);
-            this.form.reset();
         });
     }
 
@@ -25,17 +24,28 @@ class Form {
         setTimeout(()=>{
                 div.remove()
         },3000)
+        this.form.reset();
     }
     
     onError = (e) => {
-        const div = document.createElement('div');
-        div.className= 'bar error';
-        div.appendChild(document.createTextNode(e));
-        this.form.appendChild(div);
-        setTimeout(()=>{
-                div.remove()
-        },3000)
+        for (let fieldName in e){
+            const field = document.querySelector('#'+fieldName);
+            field.className = 'inputError';
+            setTimeout(()=>{
+                field.classList.remove('inputError');
+            },5000)
+            const values = e[fieldName];
+            values.forEach(el => {
+                const p = document.createElement('p');
+                p.className = 'errorMessage';
+                p.textContent = el;
+                field.parentNode.insertBefore(p, field.nextSibling);
+                setTimeout(()=>{
+                    p.remove();
+                },5000)
+            });
     }
+}
 
     LoadStudentList = (e) => {
         const select = document.querySelector('#students');

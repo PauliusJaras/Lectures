@@ -1,19 +1,18 @@
-const localStorageService = new class{
-    get students()
-    {
+const localStorageService = new class {
+    get students() {
         return JSON.parse(localStorage.getItem('students')) ?? [];
     }
 
-    get lectures(){
+    get lectures() {
         return JSON.parse(localStorage.getItem('lectures')) ?? [];
     }
 
-    set students(student){
-        localStorage.setItem('students',JSON.stringify(student));
+    set students(students) {
+        localStorage.setItem('students', JSON.stringify(students));
     }
 
-    set lectures(lecture){
-        localStorage.setItem('lectures',JSON.stringify(lecture));
+    set lectures(students) {
+        localStorage.setItem('lectures', JSON.stringify(students));
     }
 
 }

@@ -1,13 +1,17 @@
 'use strict'
 
 //Gets localStorage data
-let studentList = localStorageService.students;
-let lectureList = localStorageService.lectures;
+const studentList = localStorageService.students;
+const lectureList = localStorageService.lectures;
 
 const studentForm = new Form('#studentForm');
 const lectureForm = new Form('#lectureForm');
 const studentTable = new StudentTable(studentList);
 const lectureTable = new LectureTable(lectureList);
+
+//Gets and sends validation schemas to the service
+const studentValidationSchema = new ValidationService (ValidationSchema.studentValidation);
+const lectureValidationSchema = new ValidationService (ValidationSchema.lectureValidation);
 
 
 //Fills table list with data from localStorage
@@ -20,12 +24,22 @@ lectureForm.LoadStudentList(studentList);
 studentForm.onSubmit(addStudent);
 lectureForm.onSubmit(addLecture);
 
-
 //Adds a student to the localStorage
 function addStudent(e){
     const student = new Student(e.name, e.course, []);
 
-    if(student.fullName === '' || student.course === ''){
+    const validationResult = studentValidationSchema.validate(student);
+
+    if(validationResult === true){
+        studentForm.onSuccess();
+        studentList.push(student);
+        localStorageService.students = studentList;
+    } else {
+        studentForm.onError(validationResult);
+    }
+
+
+/*     if(student.fullName === '' || student.course === ''){
         studentForm.onError('Fields can`t be blank');
     } else if(studentList.every(x=> x.fullName !== student.fullName)){
         studentForm.onSuccess();
@@ -33,7 +47,7 @@ function addStudent(e){
         localStorageService.students = studentList;
     } else {
         studentForm.onError('Student already exists!');
-    }
+    } */
 }
 
 //Adds a lecture to the localStorage
@@ -41,10 +55,18 @@ function addLecture(e){
     const lecture = new Lecture(e.title, e.course, 
         e.studentLimit, e.startTime, e.endTime, e.students);
 
-        console.log(e);
+        const validationResult = lectureValidationSchema.validate(lecture);
+
+        if(validationResult === true){
+            lectureForm.onSuccess();
+            lectureList.push(lecture);
+            localStorageService.lectures = studentList;
+        } else {
+            lectureForm.onError(validationResult);
+        }
 
 
-        if(lecture.title === '' || lecture.course === '' || lecture.studentLimit === ''
+/*         if(lecture.title === '' || lecture.course === '' || lecture.studentLimit === ''
         || lecture.startTime === '' || lecture.endTime === ''){
             lectureForm.onError('Fields can`t be blank');
         } else if(lectureList.every(x=> x.title !== lecture.title)){
@@ -53,14 +75,13 @@ function addLecture(e){
                 localStorageService.lectures = lectureList;
         } else {
             lectureForm.onError('Lecture already exists!');
-        }
+        } */
 }
 
 //Removes a student from the localStorage and DOM
 function removeStudent(e){
     const studentName = e.target.parentNode.firstChild.textContent;
     const result = studentList.filter(x=> x.fullName !== studentName);
-    studentList = result;
     localStorageService.students = result;
     e.target.parentNode.remove();
 }
@@ -69,7 +90,6 @@ function removeStudent(e){
 function removeLecture(e){
     const lectureTitle = e.target.parentNode.firstChild.textContent;
     const result = lectureList.filter(x=> x.title !== lectureTitle);
-    lectureList = result;
     localStorageService.lectures = result;
     e.target.parentNode.remove();
 }

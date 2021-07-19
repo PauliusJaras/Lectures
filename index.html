@@ -9,6 +9,8 @@
     <script src="js/models/LecturesModel.js" defer></script>
     <script src="js/models/StudentsModel.js" defer></script>
     <script src="js/components/Form.js" defer></script>
+    <script src="js/services/ValidationSchema.js" defer></script>
+    <script src="js/services/ValidationService.js" defer></script>
     <script src="js/components/StudentTable.js" defer></script>
     <script src="js/components/LectureTable.js" defer></script>
     <script src="js/services/LocalStorageService.js" defer></script>
@@ -28,7 +30,7 @@
         <form id="studentForm">
             <h3>Student Form</h3>
             <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="fullName">
             <label for="course">Course</label>
             <input type="number" name="course" id="course">
             <label for="lectures">Lectures</label>
