@@ -1,4 +1,4 @@
-const localStorageService = new class {
+const LocalStorageService = new class {
     get students() {
         return JSON.parse(localStorage.getItem('students')) ?? [];
     }

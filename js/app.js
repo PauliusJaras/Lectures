@@ -10,8 +10,8 @@ const studentTable = new StudentTable(studentList);
 const lectureTable = new LectureTable(lectureList);
 
 //Gets and sends validation schemas to the service
-const studentValidationSchema = new ValidationService (ValidationSchema.studentValidation);
-const lectureValidationSchema = new ValidationService (ValidationSchema.lectureValidation);
+const studentValidationSchema = new ValidationService (studentFormValidationSchema);
+const lectureValidationSchema = new ValidationService (lectureFormValidationSchema);
 
 
 //Fills table list with data from localStorage
